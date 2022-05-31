@@ -25,7 +25,7 @@
     "noCache"       : false,
     // "noCache" set whether your resources will be loaded with a timestamp suffix in the url.
     // In this way, your resources will be force updated even if the browser holds a cache of it.
-    // It's very useful for mobile browser debuging.
+    // It's very useful for mobile browser debugging.
 
     "id"            : "gameCanvas",
     // "gameCanvas" sets the id of your canvas element on the web page, it's useful only on web.
@@ -66,14 +66,16 @@ cc.game.onStart = function(){
     // cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
 
     // Setup the resolution policy and design resolution size
-    cc.view.setDesignResolutionSize(480,720, cc.ResolutionPolicy.SHOW_ALL);
+    cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.SHOW_ALL);
 
     // The game will be resized when browser size change
     cc.view.resizeWithBrowserSize(true);
 
     //load resources
-    cc.LoaderScene.preload(g_mainmenu, function () {
-        cc.director.runScene(SysMenu.scene());
+    cc.LoaderScene.preload(g_resources, function () {
+        cc.director.runScene(new titleScene());
+        /**·n±ì´ú¸Õ*/
+        //cc.director.runScene(new rockerTestScene());
     }, this);
 };
 cc.game.run();
